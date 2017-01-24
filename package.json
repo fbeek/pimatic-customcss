@@ -1,0 +1,37 @@
+{
+  "name": "pimatic-customcss",
+  "description": "A pimatic plugin to add custom css to the mobile frontend to give pimatic your private touch",
+  "author": {
+    "name": "Florian in der Beek",
+    "email": "florian@idbtec.de",
+    "url": "http://idbtec.de"
+  },
+  "main": "customcss",
+  "files": [
+    "customcss.coffee",
+    "customcss-config-schema.coffee",
+    "app/*",
+    "doc/*"
+  ],
+  "version": "0.1.0",
+  "homepage": "http://idbtec.de/customcss",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fbeek/pimatic-customcss.git"
+  },
+  "configSchema": "customcss-config-schema.coffee",
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "pimatic": "0.9.*"
+  },
+  "engines": {
+    "node": ">=4.5.x",
+    "npm": ">=2.15.x"
+  },
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/fbeek/pimatic-customcss/issues"
+  }
+}
