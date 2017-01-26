@@ -1,5 +1,12 @@
-pimatic-dwd
+pimatic-customcss
 =======================
+
+This is a little helper plugin for the technically savvy user, it is not recommendet for DAU users.
+Its a wrapper that enables the user to load his own custom css into the pimatic-mobile-frontend.
+
+After the first restart of pimatic you find a css file in the plugin directore where you can add your custom css.
+
+See "Usage" for the detailed usage of the plugin.
 
 ### Sponsoring
 
@@ -11,6 +18,9 @@ Do you like this plugin? Then please consider a donation to support the developm
 
 Information
 ---------
+
+Because of the support ending for pimatic 0.8.x, we from now on support only pimatic > 0.9.x !
+
 
 Usage
 ---------
