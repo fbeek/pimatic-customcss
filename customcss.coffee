@@ -2,7 +2,7 @@ module.exports = (env) ->
 
   Promise = env.require 'bluebird'
   assert = env.require 'cassert'
-  fs = env.require 'fs.extra'
+  fs = require 'fs-extra'
   path = env.require 'path'
 
   class CustomcssPlugin extends env.plugins.Plugin
@@ -14,20 +14,30 @@ module.exports = (env) ->
         # Check if the mobile-frontent was loaded and get a instance, without this our plugin makes no sense :-)
         mobileFrontend = @framework.pluginManager.getPlugin 'mobile-frontend'
         if mobileFrontend?
-          filepathShort = path.join('pimatic-customcss/app/css/','customcss_user.css')
-          filepathShort = path.normalize(filepathShort)
+          rootPath = path.normalize(path.join(__dirname, '/../..'))
+          folderName = 'customAssets'
 
-          filepathLong = path.join(__dirname, '/app/css/','customcss_user.css')
-          filepathLong = path.normalize(filepathLong)
-          
-          if fs.existsSync(filepathLong)
-            env.logger.info "custom css file loaded "
-          else
-            handle = fs.openSync(filepathLong, 'w+')
-            fs.closeSync(handle);          
-            env.logger.info "customcss_user.css file was missing, file created and loaded !"
+          assetFolderPath = path.normalize(path.join(rootPath, folderName))
+          userCssFile = path.normalize(path.join(assetFolderPath,'user.css'))
 
-          mobileFrontend.registerAssetFile 'css', filepathShort  
+          internalFilePath = path.normalize(path.join('pimatic-customcss/app/css/','user.css'))
+          try
+            if !fs.existsSync(assetFolderPath)
+              fs.mkdirSync(assetFolderPath)
+
+            if !fs.existsSync(userCssFile)
+              handle = fs.openSync(userCssFile, 'w+')
+              fs.closeSync(handle);
+
+            fs.copySync(userCssFile,internalFilePath)    
+            
+            if fs.existsSync(internalFilePath)
+              env.logger.info "custom css file registered"
+              mobileFrontend.registerAssetFile 'css', internalFilePath
+            else
+              env.logger.info "customcss_user.css file is missing !"
+          catch error 
+            env.logger.warn error
         else
           env.logger.warn "Customcss could not find the mobile-frontend. No gui will be available, so this plugin makes no sense :-)"
 

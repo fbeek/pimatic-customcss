@@ -22,6 +22,7 @@
   },
   "configSchema": "customcss-config-schema.coffee",
   "dependencies": {
+    "fs-extra": "^2.0.0"
   },
   "peerDependencies": {
     "pimatic": "0.9.*"
@@ -33,5 +34,11 @@
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/fbeek/pimatic-customcss/issues"
-  }
+  },
+  "gitHead": "af8c4cf6725528d7bc718b0a36dbde117aa12b06",
+  "readme": "pimatic-customcss\n=======================\n\nThis is a little helper plugin for the technically savvy user, it is not recommendet for DAU users.\nIts a wrapper that enables the user to load his own custom css into the pimatic-mobile-frontend.\n\nAfter the first restart of pimatic you find a css file in the plugin directore where you can add your custom css.\n\nSee \"Usage\" for the detailed usage of the plugin.\n\n### Sponsoring\n\nDo you like this plugin? Then please consider a donation to support the development.\n\n<span class=\"badge-paypal\"><a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZSZE2U9Z6J26U\" title=\"Donate to this project using Paypal\"><img src=\"https://img.shields.io/badge/paypal-donate-yellow.svg\" alt=\"PayPal Donate Button\" /></a></span>\n\n<a href=\"https://flattr.com/submit/auto?fid=jeo2wl&url=https%3A%2F%2Fgithub.com%2Ffbeek%2Fpimatic-maxcul\" target=\"_blank\"><img src=\"http://button.flattr.com/flattr-badge-large.png\" alt=\"Flattr this\" title=\"Flattr this\" border=\"0\"></a>\n\nInformation\n---------\n\nBecause of the support ending for pimatic 0.8.x, we from now on support only pimatic > 0.9.x !\n\n\nUsage\n---------\n\nChangelog\n---------------\n\nToDo\n---------------\n\n",
+  "_id": "pimatic-customcss@0.1.0",
+  "_shasum": "fbb9c931628d95ab8d687d7f6dc001f9d95fa094",
+  "_from": "git+https://github.com/fbeek/pimatic-customcss.git",
+  "_resolved": "git+https://github.com/fbeek/pimatic-customcss.git#af8c4cf6725528d7bc718b0a36dbde117aa12b06"
 }
