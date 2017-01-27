@@ -21,6 +21,8 @@ module.exports = (env) ->
           userCssFile = path.normalize(path.join(assetFolderPath,'user.css'))
 
           internalFilePath = path.normalize(path.join('pimatic-customcss/app/css/','user.css'))
+          absoluteInternalFilePath = path.normalize(path.join(__dirname,'app/css/','user.css'))
+
           try
             if !fs.existsSync(assetFolderPath)
               fs.mkdirSync(assetFolderPath)
@@ -29,9 +31,9 @@ module.exports = (env) ->
               handle = fs.openSync(userCssFile, 'w+')
               fs.closeSync(handle);
 
-            fs.copySync(userCssFile,internalFilePath)    
+            fs.copySync(userCssFile,absoluteInternalFilePath)    
             
-            if fs.existsSync(internalFilePath)
+            if fs.existsSync(absoluteInternalFilePath)
               env.logger.info "custom css file registered"
               mobileFrontend.registerAssetFile 'css', internalFilePath
             else
